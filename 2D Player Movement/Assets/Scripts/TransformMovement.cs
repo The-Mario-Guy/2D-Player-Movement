@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class TransformMovement : MonoBehaviour
 {
 
     public float speed = 6;
@@ -16,7 +16,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
+        float VerticalInput = Input.GetAxis("Vertical");
 
-        transform.Translate(Vector2.right * Time.deltaTime * horizontalInput * speed);
+        transform.Translate(Vector3.right * Time.deltaTime * horizontalInput * speed);
+        transform.Translate(Vector2.up * Time.deltaTime * VerticalInput * speed);
     }
 }
