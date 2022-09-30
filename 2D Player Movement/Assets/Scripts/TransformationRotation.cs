@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TransformMovement : MonoBehaviour
+public class TransformationRotation : MonoBehaviour
 {
     public float speed = 5;
+    public float rotationSpeed = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,6 @@ public class TransformMovement : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         transform.Translate(Vector3.right * horizontalInput * speed * Time.deltaTime);
-
-        transform.Translate(Vector3.up * verticalInput * speed * Time.deltaTime);
+        transform.Rotate(Vector3.forward, verticalInput * rotationSpeed * Time.deltaTime);
     }
 }
